@@ -1,0 +1,355 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Cindy &amp; Alex · 25.09.2027</title>
+<meta name="description" content="Nos casamos el 25 de septiembre de 2027 a las 17:30 en la Masia Cal Gitanet (Gurb). Confirma tu asistencia aquí.">
+<meta property="og:title" content="Cindy &amp; Alex · 25.09.2027">
+<meta property="og:description" content="Irasshaimase! Nos casamos en la Masia Cal Gitanet. Confirma tu asistencia aquí.">
+<meta property="og:type" content="website">
+<meta name="theme-color" content="#2a1b12">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect x='4' y='4' width='56' height='56' rx='8' fill='%23f3e9d6' stroke='%23b8322a' stroke-width='5'/%3E%3Ctext x='32' y='44' font-size='34' text-anchor='middle' fill='%23b8322a' font-family='serif'%3E%E5%AF%BF%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Shippori+Mincho+B1:wght@500;800&family=Zen+Kaku+Gothic+New:wght@400;700&family=Yuji+Syuku&family=IBM+Plex+Mono:wght@400;600&display=swap">
+<style>
+/* Izakaya: madera oscura, papel washi, añil (noren) y rojo hanko */
+:root{
+  --wood:#2a1b12; --wood-2:#3a2618; --rod:#6b4a2e; --paper:#f3e9d6; --paper-2:#fffaf0;
+  --indigo:#24325f; --indigo-2:#2b3b70; --red:#b8322a; --tablet:#d8b98b; --ink:#2a1b12;
+  --line-dark:rgba(42,27,18,.22); --line-light:rgba(243,233,214,.24);
+  --display:"Shippori Mincho B1","Hiragino Mincho ProN","Times New Roman",serif;
+  --body:"Zen Kaku Gothic New",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --brush:"Yuji Syuku","Hiragino Mincho ProN",serif;
+  --mono:"IBM Plex Mono",ui-monospace,Menlo,monospace;
+  color-scheme:light;
+}
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{margin:0;font-family:var(--body);font-size:16px;line-height:1.6;color:var(--paper);
+  background:repeating-linear-gradient(90deg,rgba(0,0,0,.09) 0 2px,transparent 2px 11px),var(--wood)}
+body.locked{overflow:hidden}
+img,svg{max-width:100%}
+a{color:inherit}
+:focus-visible{outline:3px solid #e0a43a;outline-offset:3px}
+.inner{max-width:1040px;margin:0 auto;position:relative}
+.pad{padding-left:max(22px,env(safe-area-inset-left,0px));padding-right:max(22px,env(safe-area-inset-right,0px))}
+h2{font-family:var(--display);font-weight:800;font-size:30px;line-height:1.15;margin:0 0 18px;text-wrap:balance}
+.hjp{display:block;font-family:var(--body);font-weight:700;font-size:13px;letter-spacing:.2em;color:var(--red);margin-bottom:6px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;font:inherit;font-weight:700;font-size:15px;padding:12px 20px;border-radius:4px;border:0;background:var(--red);color:var(--paper);text-decoration:none;cursor:pointer}
+.btn:hover{filter:brightness(1.08)}
+.btn.ghost{background:transparent;color:inherit;border:1.5px solid currentColor}
+
+/* ---------- Entrada (noren) ---------- */
+.gate{position:fixed;inset:0;z-index:50;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;gap:14px;text-align:center;
+  padding:24px max(22px,env(safe-area-inset-right,0px)) calc(44px + env(safe-area-inset-bottom,0px)) max(22px,env(safe-area-inset-left,0px));
+  background:repeating-linear-gradient(90deg,rgba(0,0,0,.12) 0 2px,transparent 2px 11px),var(--wood-2);
+  transition:opacity .9s ease,visibility 0s linear .9s;overflow:hidden}
+.gate.gone{opacity:0;visibility:hidden}
+.gate p{margin:0;position:relative;z-index:2}
+.gate .btn{position:relative;z-index:2}
+.rod{position:absolute;left:0;right:0;top:0;height:calc(12px + env(safe-area-inset-top,0px));background:var(--rod);z-index:3}
+.nr{position:absolute;top:calc(12px + env(safe-area-inset-top,0px));height:56%;width:calc(50% - 3px);background:linear-gradient(180deg,var(--indigo-2),#1d2850);color:var(--paper);
+  font-family:var(--brush);font-size:min(150px,30vw);line-height:1;display:grid;place-items:center;transition:transform 1s cubic-bezier(.5,0,.2,1);z-index:3;box-shadow:inset 0 -10px 0 rgba(0,0,0,.15)}
+.nr.l{left:0}.nr.r{right:0}
+.gate.open .nr.l{transform:translateX(-104%) skewY(-3deg)}
+.gate.open .nr.r{transform:translateX(104%) skewY(3deg)}
+.g-names{font-family:var(--display);font-weight:800;font-size:38px;line-height:1.05}
+.g-sub{font-size:15px;opacity:.85}
+.snd{font-size:12px;opacity:.7}
+
+/* ---------- Portada ---------- */
+.hero{position:relative;overflow:hidden;background:var(--paper);color:var(--ink);padding-top:calc(90px + env(safe-area-inset-top,0px));padding-bottom:60px}
+.mini-noren{display:flex;gap:4px;position:absolute;left:0;right:0;top:0;padding-top:env(safe-area-inset-top,0px);background:var(--indigo)}
+.mini-noren span{flex:1;height:36px;background:var(--indigo);color:var(--paper);font-family:var(--brush);display:grid;place-items:center;font-size:17px;border-right:4px solid var(--paper)}
+.mini-noren span:last-child{border-right:0}
+.hanko{position:absolute;right:max(18px,env(safe-area-inset-right,0px));top:calc(56px + env(safe-area-inset-top,0px));width:66px;height:66px;border:4px solid var(--red);color:var(--red);border-radius:8px;display:grid;place-items:center;font-family:var(--display);font-weight:800;font-size:20px;transform:rotate(-8deg);opacity:.9}
+.vert{display:none;writing-mode:vertical-rl;font-family:var(--brush);font-size:34px;color:var(--indigo);position:absolute;right:60px;top:170px;letter-spacing:.2em}
+.kicker{margin:0;padding-right:84px;font-size:14px;letter-spacing:.14em;text-transform:uppercase;font-weight:700;color:var(--red)}
+.names{font-family:var(--display);font-weight:800;font-size:clamp(52px,13vw,128px);line-height:1;margin:12px 0 18px}
+.lede{margin:0;font-size:17px;max-width:52ch}
+.when{display:flex;gap:12px;flex-wrap:wrap;margin-top:24px}
+.when>div{border:1.5px solid rgba(42,27,18,.3);padding:10px 16px;border-radius:4px;display:flex;flex-direction:column}
+.when small{font-size:11px;letter-spacing:.18em;text-transform:uppercase;opacity:.75}
+.when b{font-family:var(--display);font-weight:800;font-size:28px;line-height:1.1;font-variant-numeric:tabular-nums}
+.day{margin:12px 0 0;font-size:15px;opacity:.85}
+
+/* ---------- Secciones (tarjetas de papel sobre madera) ---------- */
+section{padding-top:48px;padding-bottom:4px}
+.card{background:var(--paper);color:var(--ink);padding:26px 22px;border-radius:4px;box-shadow:0 12px 26px rgba(0,0,0,.35)}
+.cd{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px}
+.cd>div{background:var(--indigo);color:var(--paper);border-radius:4px;padding:14px 4px;text-align:center}
+.cd b{display:block;font-family:var(--display);font-weight:800;font-size:34px;font-variant-numeric:tabular-nums;line-height:1.05}
+.cd small{font-size:11px;letter-spacing:.12em;text-transform:uppercase}
+.venue{font-family:var(--display);font-weight:800;font-size:26px;margin:0;line-height:1.2}
+address{font-style:normal;margin:6px 0 18px}
+.plan ol{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:10px}
+.plan li{display:flex;flex-direction:column;align-items:center;text-align:center;width:calc(50% - 5px);background:var(--tablet);border-radius:3px;padding:14px 8px;box-shadow:inset 0 0 0 2px rgba(42,27,18,.15);gap:2px}
+.plan .k{writing-mode:vertical-rl;font-family:var(--brush);font-size:30px;line-height:1.1;margin:4px 0;min-height:70px;font-style:normal}
+.plan .t{font-family:var(--mono);font-weight:600;color:#8f2219;font-size:13px}
+.plan b{font-size:16px}
+.plan span.d{font-size:13px;opacity:.8}
+
+/* Código de vestimenta */
+.dress-grid{display:grid;grid-template-columns:minmax(0,1fr);gap:22px}
+.dress-main{display:flex;flex-direction:column;gap:12px}
+.dress-tag{display:inline-flex;align-self:flex-start;align-items:center;gap:10px;background:var(--indigo);color:var(--paper);padding:8px 16px;border-radius:4px;font-family:var(--display);font-weight:800;font-size:22px}
+.dress-main p{margin:0}
+.nowhite{border:2px solid var(--red);border-radius:4px;padding:16px 18px;display:flex;flex-direction:column;gap:12px;background:var(--paper-2)}
+.nowhite h3{margin:0;font-family:var(--display);font-weight:800;font-size:20px;color:var(--red);display:flex;align-items:center;gap:10px}
+.nowhite h3 .x{font-family:var(--brush);font-size:26px;line-height:1}
+.nowhite p{margin:0}
+.sw{display:flex;flex-wrap:wrap;gap:10px;margin:0;padding:0;list-style:none}
+.sw li{display:flex;flex-direction:column;align-items:center;gap:4px;font-size:12px;width:62px;text-align:center;line-height:1.2}
+.sw i{width:40px;height:40px;border-radius:50%;border:1.5px solid rgba(42,27,18,.3);position:relative;display:block}
+.sw.no i::after{content:"";position:absolute;left:50%;top:-3px;bottom:-3px;width:3px;margin-left:-1.5px;background:var(--red);transform:rotate(45deg);border-radius:2px}
+.yes-label{font-weight:700;font-size:14px;margin:4px 0 0}
+
+/* Confirmación */
+.deadline{margin:0 0 16px;padding:12px 14px;background:var(--indigo);color:var(--paper);border-radius:4px}
+.testing{margin:0 0 14px;padding:10px 12px;border:1.5px dashed var(--red);border-radius:4px;font-size:13px;color:#8f2219}
+.form{display:flex;flex-direction:column;gap:8px}
+.form label{font-size:14px;font-weight:700}
+.form input:not([type=radio]){width:100%;font:inherit;padding:11px 12px;border:1.5px solid var(--line-dark);background:var(--paper-2);color:inherit;border-radius:4px}
+.form fieldset{border:0;padding:0;margin:4px 0 6px;display:flex;flex-wrap:wrap;gap:8px}
+.form legend{font-size:14px;font-weight:700;margin-bottom:6px;padding:0}
+.opt{display:flex;align-items:center;gap:8px;padding:9px 14px;border:1.5px solid var(--line-dark);border-radius:4px;cursor:pointer;font-weight:500!important}
+.form .btn{margin-top:8px;align-self:flex-start}
+.err{color:var(--red);font-weight:700;font-size:14px;margin:0}
+.thanks{background:var(--indigo);color:var(--paper);border-radius:4px;padding:22px;display:flex;flex-direction:column;gap:8px;align-items:flex-start}
+.thanks b{font-family:var(--display);font-weight:800;font-size:26px;line-height:1.15}
+.thanks p{margin:0}
+
+/* Regalo */
+.goshugi{display:flex;gap:18px;align-items:center;margin-bottom:16px}
+.goshugi svg{flex:none;width:78px;height:112px}
+.goshugi p{margin:0;font-size:14px}
+.gt{margin:0 0 16px}
+.iban{display:flex;flex-wrap:wrap;gap:10px;align-items:center;background:var(--indigo);color:var(--paper);padding:14px;border-radius:4px}
+.iban div{flex:1 1 220px;min-width:0}
+.iban small{display:block;font-size:11px;letter-spacing:.16em;text-transform:uppercase;opacity:.75}
+.iban code{font-family:var(--mono);font-size:16px;letter-spacing:.03em;word-break:break-all}
+.copied{font-weight:700;color:var(--red);margin:8px 0 0}
+
+footer{padding:48px max(22px,env(safe-area-inset-right,0px)) calc(100px + env(safe-area-inset-bottom,0px)) max(22px,env(safe-area-inset-left,0px));text-align:center;font-size:14px;opacity:.85}
+footer .fjp{font-family:var(--brush);font-size:22px;display:block;margin-bottom:4px}
+
+/* Música */
+.music{position:fixed;right:calc(16px + env(safe-area-inset-right,0px));bottom:calc(16px + env(safe-area-inset-bottom,0px));z-index:40;width:50px;height:50px;border-radius:50%;border:0;background:var(--red);color:var(--paper);display:flex;align-items:flex-end;justify-content:center;gap:3px;padding-bottom:16px;cursor:pointer;box-shadow:0 6px 16px rgba(0,0,0,.35)}
+.music span{width:4px;height:6px;background:currentColor;border-radius:2px}
+.music.on span{animation:eq .9s ease-in-out infinite}
+.music.on span:nth-child(2){animation-delay:.25s}.music.on span:nth-child(3){animation-delay:.5s}
+@keyframes eq{50%{height:18px}}
+.toast{position:fixed;left:calc(16px + env(safe-area-inset-left,0px));bottom:calc(22px + env(safe-area-inset-bottom,0px));z-index:40;background:rgba(10,10,14,.82);color:#fff;font-size:13px;padding:8px 14px;border-radius:999px;max-width:calc(100% - 100px)}
+#yt{position:fixed;left:0;bottom:0;width:200px;height:200px;opacity:0;pointer-events:none;z-index:-1}
+
+@media (min-width:760px){
+  h2{font-size:40px}
+  .hero{padding-top:150px;padding-bottom:100px}
+  .hanko{right:150px;top:84px;width:96px;height:96px;font-size:28px}
+  .vert{display:block}
+  .kicker{padding-right:0}
+  section{padding-top:64px}
+  .card{padding:36px}
+  .pair{display:grid;grid-template-columns:1fr 1fr;gap:28px;max-width:1040px;margin:0 auto}
+  .pair section{padding-left:0;padding-right:0}
+  .pairwrap{padding-left:max(22px,env(safe-area-inset-left,0px));padding-right:max(22px,env(safe-area-inset-right,0px))}
+  .cd b{font-size:58px}
+  .cd>div{padding:22px 8px}
+  .plan li{width:calc(25% - 8px)}
+  .dress-grid{grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:36px;align-items:start}
+}
+@media (prefers-reduced-motion: reduce){
+  *,*::before,*::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}
+}
+</style>
+</head>
+<body class="locked">
+
+<!-- Entrada: el toque en "Entrar" arranca la música (los navegadores no permiten sonido sin un toque) -->
+<div class="gate" id="gate">
+  <div class="rod"></div>
+  <div class="nr l" aria-hidden="true">結</div>
+  <div class="nr r" aria-hidden="true">婚</div>
+  <p class="g-names">Cindy &amp; Alex</p>
+  <p class="g-sub">いらっしゃいませ · Pasad, estáis en casa</p>
+  <button class="btn" type="button" id="enter">Entrar</button>
+  <p class="snd">Con música ♪ · sube el volumen</p>
+</div>
+
+<header class="hero pad">
+  <div class="mini-noren" aria-hidden="true"><span>寿</span><span>祝</span><span>宴</span><span>寿</span><span>祝</span></div>
+  <div class="hanko" aria-hidden="true">C&amp;A</div>
+  <div class="vert" aria-hidden="true">いらっしゃいませ</div>
+  <div class="inner">
+    <p class="kicker">Irasshaimase! Os esperamos</p>
+    <h1 class="names">Cindy &amp; Alex</h1>
+    <p class="lede">La pedida fue en Japón y ahora abrimos la barra para celebrar que nos casamos. Venid con ganas de fiesta.</p>
+    <div class="when"><div><small>Fecha</small><b>25.09.2027</b></div><div><small>Hora</small><b>17:30 h</b></div></div>
+    <p class="day">Sábado, 25 de septiembre de 2027, a las cinco y media de la tarde</p>
+  </div>
+</header>
+
+<main>
+  <section class="count pad" aria-labelledby="h-count"><div class="inner card">
+    <h2 id="h-count"><small class="hjp">開店まで</small>Abrimos la barra en</h2>
+    <div class="cd" aria-live="off"><div><b data-u="d">0</b><small>días</small></div><div><b data-u="h">00</b><small>horas</small></div><div><b data-u="m">00</b><small>min</small></div><div><b data-u="s">00</b><small>seg</small></div></div>
+  </div></section>
+
+  <div class="pairwrap"><div class="pair">
+    <section class="place pad" aria-labelledby="h-place"><div class="inner card">
+      <h2 id="h-place"><small class="hjp">会場</small>Dónde está la taberna</h2>
+      <p class="venue">Masia Cal Gitanet</p>
+      <address>Masia Cal Gitanet, s/n<br>08503 Gurb (Vic), Barcelona</address>
+      <a class="btn" href="https://www.google.com/maps/search/?api=1&amp;query=Masia+Cal+Gitanet+08503+Gurb" target="_blank" rel="noopener">Abrir en Google Maps</a>
+    </div></section>
+    <section class="plan pad" aria-labelledby="h-plan"><div class="inner card">
+      <h2 id="h-plan"><small class="hjp">お品書き</small>La carta del día</h2>
+      <ol>
+        <li><span class="t">17:30</span><i class="k" aria-hidden="true">式</i><b>Ceremonia</b><span class="d">El sí, quiero</span></li>
+        <li><span class="t">Después</span><i class="k" aria-hidden="true">乾杯</i><b>Kanpai</b><span class="d">Cóctel y brindis</span></li>
+        <li><span class="t">Noche</span><i class="k" aria-hidden="true">宴</i><b>Banquete</b><span class="d">Cena de celebración</span></li>
+        <li><span class="t">Hasta tarde</span><i class="k" aria-hidden="true">二次会</i><b>Nijikai</b><span class="d">La fiesta de después</span></li>
+      </ol>
+    </div></section>
+  </div></div>
+
+  <section class="dress pad" id="dress-code" aria-labelledby="h-dress"><div class="inner card">
+    <h2 id="h-dress"><small class="hjp">ドレスコード</small>Código de vestimenta</h2>
+    <div class="dress-grid">
+      <div class="dress-main">
+        <span class="dress-tag">Cóctel elegante</span>
+        <p>Vestido de cóctel o midi, mono elegante, traje o americana. Arreglados pero cómodos: la fiesta dura hasta tarde y se baila mucho.</p>
+        <p class="yes-label">Cualquier color con presencia es bienvenido:</p>
+        <ul class="sw" aria-label="Colores que sí">
+          <li><i style="background:#24325f"></i>Azul</li>
+          <li><i style="background:#b8322a"></i>Rojo</li>
+          <li><i style="background:#2f6b4f"></i>Verde</li>
+          <li><i style="background:#c9822b"></i>Mostaza</li>
+          <li><i style="background:#6d3b6b"></i>Morado</li>
+          <li><i style="background:#1d1b1a"></i>Negro</li>
+        </ul>
+      </div>
+      <div class="nowhite">
+        <h3><span class="x" aria-hidden="true">✕</span>El blanco, para los novios</h3>
+        <p>Cindy y Alex iremos los dos de blanco o en tonos claros, así que <b>está prohibido el blanco y los colores parecidos</b>: marfil, crema, beige, champán, gris perla o tonos muy claros.</p>
+        <ul class="sw no" aria-label="Colores que no">
+          <li><i style="background:#ffffff"></i>Blanco</li>
+          <li><i style="background:#f6efdc"></i>Marfil</li>
+          <li><i style="background:#efe3c8"></i>Crema</li>
+          <li><i style="background:#e2cfae"></i>Beige</li>
+          <li><i style="background:#ead9b5"></i>Champán</li>
+          <li><i style="background:#dfe0e2"></i>Gris perla</li>
+        </ul>
+      </div>
+    </div>
+  </div></section>
+
+  <div class="pairwrap"><div class="pair">
+    <section class="rsvp pad" id="confirmar" aria-labelledby="h-rsvp"><div class="inner card">
+      <h2 id="h-rsvp"><small class="hjp">ご予約</small>Reserva tu sitio en la barra</h2>
+      <p class="deadline">Confirma antes del <b>25 de julio de 2027</b></p>
+      <!-- TODO: conectar el formulario a un sitio donde guardar las respuestas y poner los campos definitivos -->
+      <p class="testing" id="testing">Formulario en pruebas: todavía no guarda las respuestas.</p>
+      <form class="form" id="form" novalidate>
+        <label for="nom">Nombre y apellidos</label><input id="nom" name="nombre" type="text" autocomplete="name">
+        <fieldset><legend>¿Vienes?</legend>
+          <label class="opt"><input type="radio" name="asistencia" value="si" checked> Sí, ahí estaré</label>
+          <label class="opt"><input type="radio" name="asistencia" value="no"> No puedo ir</label>
+        </fieldset>
+        <label for="acomp">Acompañante (si viene alguien contigo)</label><input id="acomp" name="acompanante" type="text">
+        <label for="alerg">Alergias o intolerancias</label><input id="alerg" name="alergias" type="text">
+        <label for="cancion">La canción que no puede faltar</label><input id="cancion" name="cancion" type="text">
+        <p class="err" id="err" hidden>Escribe tu nombre para poder confirmar.</p>
+        <button class="btn" type="submit">Reservar mi sitio</button>
+      </form>
+      <div class="thanks" id="thanks" hidden><b>Sitio reservado. ¡Kanpai!</b><p id="thanksTxt"></p><button class="btn ghost" type="button" id="again">Cambiar mi respuesta</button></div>
+    </div></section>
+    <section class="gift pad" aria-labelledby="h-gift"><div class="inner card">
+      <h2 id="h-gift"><small class="hjp">御祝儀</small>Goshūgi</h2>
+      <div class="goshugi">
+        <svg viewBox="0 0 78 112" aria-hidden="true"><rect x="2" y="2" width="74" height="108" rx="3" fill="#fffaf0" stroke="#2a1b12" stroke-width="1.5"/><rect x="2" y="58" width="74" height="10" fill="#c8102e"/><rect x="2" y="63" width="74" height="3" fill="#fff"/><path d="M28 63 q11 -16 22 0 q-11 16 -22 0z" fill="none" stroke="#c8102e" stroke-width="3"/><text x="39" y="40" text-anchor="middle" font-size="24" fill="#2a1b12" font-family="Yuji Syuku, serif">寿</text></svg>
+        <p>En Japón, a las bodas se lleva un sobre goshūgi con un regalo en dinero, atado con un nudo mizuhiki.</p>
+      </div>
+      <p class="gt">El nuestro es digital. Lo mejor es que vengáis; si además queréis hacernos un regalo, esta es nuestra cuenta:</p>
+      <!-- TODO: poner el IBAN real (también en la constante IBAN del script) -->
+      <div class="iban"><div><small>IBAN de ejemplo</small><code id="ibanTxt">ES00 0000 0000 0000 0000 0000</code></div><button class="btn" type="button" id="copy">Copiar IBAN</button></div>
+      <p class="copied" id="copied" hidden></p>
+    </div></section>
+  </div></div>
+</main>
+
+<footer><span class="fjp" aria-hidden="true">ご来店ありがとうございます</span>Cindy &amp; Alex · 25.09.2027 · Masia Cal Gitanet</footer>
+
+<button class="music" id="music" type="button" hidden aria-label="Pausar la música" aria-pressed="true"><span></span><span></span><span></span></button>
+<div class="toast" id="toast" hidden>♪ One Summer's Day · Joe Hisaishi</div>
+<div id="yt" aria-hidden="true"></div>
+
+<script>
+const TARGET = Date.parse('2027-09-25T17:30:00+02:00');
+const IBAN = document.getElementById('ibanTxt').textContent;
+const SONG = 'TK1Ij_-mank'; // Joe Hisaishi - One Summer's Day
+
+/* ---------- Música (YouTube) ---------- */
+let player = null, ready = false, wantPlay = false;
+window.onYouTubeIframeAPIReady = () => {
+  player = new YT.Player('yt', {
+    width: 200, height: 200, videoId: SONG,
+    playerVars: { autoplay: 0, controls: 0, loop: 1, playlist: SONG, playsinline: 1, rel: 0 },
+    events: { onReady: () => { ready = true; if (wantPlay) player.playVideo(); } }
+  });
+};
+(function(){ const s = document.createElement('script'); s.src = 'https://www.youtube.com/iframe_api'; document.head.append(s); })();
+
+const music = document.getElementById('music'), toast = document.getElementById('toast');
+function setMusic(on){
+  wantPlay = on;
+  if (ready){ on ? player.playVideo() : player.pauseVideo(); }
+  music.classList.toggle('on', on); music.setAttribute('aria-pressed', on);
+  music.setAttribute('aria-label', on ? 'Pausar la música' : 'Poner la música');
+}
+music.addEventListener('click', () => setMusic(!music.classList.contains('on')));
+
+/* ---------- Entrada ---------- */
+const gate = document.getElementById('gate');
+document.getElementById('enter').addEventListener('click', () => {
+  setMusic(true);
+  music.hidden = false;
+  toast.hidden = false; setTimeout(() => toast.hidden = true, 4500);
+  gate.classList.add('open');
+  setTimeout(() => { gate.classList.add('gone'); document.body.classList.remove('locked'); }, 1000);
+});
+
+/* ---------- Cuenta atrás ---------- */
+function tick(){
+  const d = Math.max(0, TARGET - Date.now());
+  const v = { d: Math.floor(d/864e5), h: Math.floor(d/36e5)%24, m: Math.floor(d/6e4)%60, s: Math.floor(d/1e3)%60 };
+  document.querySelectorAll('.cd b').forEach(b => { const n = v[b.dataset.u]; b.textContent = b.dataset.u === 'd' ? n : String(n).padStart(2,'0'); });
+}
+tick(); setInterval(tick, 1000);
+
+/* ---------- Confirmación (pendiente de conectar) ---------- */
+const form = document.getElementById('form'), thanks = document.getElementById('thanks'), err = document.getElementById('err');
+form.addEventListener('submit', e => {
+  e.preventDefault();
+  const nom = document.getElementById('nom'), n = nom.value.trim();
+  if (!n){ err.hidden = false; nom.focus(); return; }
+  err.hidden = true;
+  const va = form.querySelector('input[name=asistencia]:checked').value;
+  document.getElementById('thanksTxt').textContent = (va === 'si' ? `${n}, cuenta contigo.` : `${n}, te echaremos de menos.`) + ' (Formulario en pruebas: esta respuesta aún no se ha guardado.)';
+  form.hidden = true; thanks.hidden = false;
+});
+document.getElementById('again').addEventListener('click', () => { thanks.hidden = true; form.hidden = false; });
+
+/* ---------- Copiar IBAN ---------- */
+const copied = document.getElementById('copied');
+function say(t){ copied.textContent = t; copied.hidden = false; clearTimeout(say.t); say.t = setTimeout(() => copied.hidden = true, 3500); }
+document.getElementById('copy').addEventListener('click', () => {
+  const fallback = () => { const r = document.createRange(); r.selectNodeContents(document.getElementById('ibanTxt')); const s = getSelection(); s.removeAllRanges(); s.addRange(r); say('Ya está seleccionado: cópialo con el menú del móvil o Ctrl+C.'); };
+  try { navigator.clipboard.writeText(IBAN.replace(/\s/g,'')).then(() => say('¡IBAN copiado! Ya puedes pegarlo en tu banco.'), fallback); } catch(e){ fallback(); }
+});
+</script>
+</body>
+</html>
