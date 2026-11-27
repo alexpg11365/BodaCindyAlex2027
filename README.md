@@ -2,7 +2,7 @@
 
 Web de la boda (estilo Izakaya, inspirada en Japón).
 
-- **Cuándo:** sábado 25 de septiembre de 2027, 17:30 h
+- **Cuándo:** sábado 25 de septiembre de 2027 · llegada 17:30 h, ceremonia 18:00 h
 - **Dónde:** Masia Cal Gitanet, s/n, 08503 Gurb (Vic), Barcelona
 - **Música al entrar:** One Summer's Day, de Joe Hisaishi (YouTube)
 
