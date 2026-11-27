@@ -118,7 +118,12 @@ address{font-style:normal;margin:6px 0 18px}
 .testing{margin:0 0 14px;padding:10px 12px;border:1.5px dashed var(--red);border-radius:4px;font-size:13px;color:#8f2219}
 .form{display:flex;flex-direction:column;gap:8px}
 .form label{font-size:14px;font-weight:700}
-.form input:not([type=radio]){width:100%;font:inherit;padding:11px 12px;border:1.5px solid var(--line-dark);background:var(--paper-2);color:inherit;border-radius:4px}
+.form input:not([type=radio]),.form select,.form textarea{width:100%;font:inherit;padding:11px 12px;border:1.5px solid var(--line-dark);background:var(--paper-2);color:inherit;border-radius:4px}
+.form textarea{resize:vertical;min-height:84px}
+.form .sub{display:flex;flex-direction:column;gap:8px}
+.form .companion{border-left:3px solid var(--tablet);padding-left:14px;margin:2px 0 6px}
+.hp{position:absolute;left:-10000px;width:1px;height:1px;overflow:hidden}
+.form .btn:disabled{opacity:.6;cursor:wait}
 .form fieldset{border:0;padding:0;margin:4px 0 6px;display:flex;flex-wrap:wrap;gap:8px}
 .form legend{font-size:14px;font-weight:700;margin-bottom:6px;padding:0}
 .opt{display:flex;align-items:center;gap:8px;padding:9px 14px;border:1.5px solid var(--line-dark);border-radius:4px;cursor:pointer;font-weight:500!important}
@@ -273,21 +278,42 @@ footer .fjp{font-family:var(--brush);font-size:22px;display:block;margin-bottom:
     <section class="rsvp pad" id="confirmar" aria-labelledby="h-rsvp"><div class="inner card">
       <h2 id="h-rsvp"><small class="hjp">ご予約</small>Reserva tu sitio en la barra</h2>
       <p class="deadline">Confirma antes del <b>25 de julio de 2027</b></p>
-      <!-- TODO: conectar el formulario a un sitio donde guardar las respuestas y poner los campos definitivos -->
       <p class="testing" id="testing">Formulario en pruebas: todavía no guarda las respuestas.</p>
       <form class="form" id="form" novalidate>
-        <label for="nom">Nombre y apellidos</label><input id="nom" name="nombre" type="text" autocomplete="name">
-        <fieldset><legend>¿Vienes?</legend>
-          <label class="opt"><input type="radio" name="asistencia" value="si" checked> Sí, ahí estaré</label>
+        <label for="nom">Nombre y apellidos *</label><input id="nom" type="text" autocomplete="name" maxlength="120">
+        <fieldset><legend>¿Vienes? *</legend>
+          <label class="opt"><input type="radio" name="asistencia" value="si"> Sí, ahí estaré</label>
           <label class="opt"><input type="radio" name="asistencia" value="no"> No puedo ir</label>
         </fieldset>
-        <label for="acomp">Acompañante (si viene alguien contigo)</label><input id="acomp" name="acompanante" type="text">
-        <label for="alerg">Alergias o intolerancias</label><input id="alerg" name="alergias" type="text">
-        <label for="cancion">La canción que no puede faltar</label><input id="cancion" name="cancion" type="text">
-        <p class="err" id="err" hidden>Escribe tu nombre para poder confirmar.</p>
-        <button class="btn" type="submit">Reservar mi sitio</button>
+        <div class="sub" id="siFields" hidden>
+          <label for="alerg">Tus alergias o intolerancias</label><input id="alerg" type="text" maxlength="300" placeholder="Déjalo en blanco si no tienes">
+          <label for="menu">Tu menú</label>
+          <select id="menu"><option>Normal</option><option>Vegetariano</option><option>Vegano</option></select>
+          <fieldset><legend>¿Vienes acompañado/a?</legend>
+            <label class="opt"><input type="radio" name="acompanado" value="no" checked> No, vengo solo/a</label>
+            <label class="opt"><input type="radio" name="acompanado" value="si"> Sí</label>
+          </fieldset>
+          <div class="sub companion" id="acompFields" hidden>
+            <label for="acompNom">Nombre y apellidos de tu acompañante</label><input id="acompNom" type="text" maxlength="120">
+            <label for="acompAlerg">Sus alergias o intolerancias</label><input id="acompAlerg" type="text" maxlength="300" placeholder="Déjalo en blanco si no tiene">
+            <label for="acompMenu">Su menú</label>
+            <select id="acompMenu"><option>Normal</option><option>Vegetariano</option><option>Vegano</option></select>
+          </div>
+          <label for="transp">¿Te interesaría ir en autobús?</label>
+          <select id="transp">
+            <option>No, voy por mi cuenta</option>
+            <option>Sí, desde Barcelona</option>
+            <option>Sí, desde Vic</option>
+            <option>Sí, desde otro sitio</option>
+          </select>
+          <label for="cancion">La canción que no puede faltar</label><input id="cancion" type="text" maxlength="150" placeholder="Artista y canción">
+        </div>
+        <label for="msg">Un mensaje para los novios (opcional)</label><textarea id="msg" rows="3" maxlength="1000"></textarea>
+        <div class="hp" aria-hidden="true"><label for="web">No rellenes este campo</label><input id="web" type="text" tabindex="-1" autocomplete="off"></div>
+        <p class="err" id="err" role="alert" hidden></p>
+        <button class="btn" type="submit" id="send">Enviar mi respuesta</button>
       </form>
-      <div class="thanks" id="thanks" hidden><b>Sitio reservado. ¡Kanpai!</b><p id="thanksTxt"></p><button class="btn ghost" type="button" id="again">Cambiar mi respuesta</button></div>
+      <div class="thanks" id="thanks" hidden tabindex="-1"><b id="thanksTitle"></b><p id="thanksTxt"></p><button class="btn ghost" type="button" id="again">Cambiar mi respuesta</button></div>
     </div></section>
     <section class="gift pad" aria-labelledby="h-gift"><div class="inner card">
       <h2 id="h-gift"><small class="hjp">御祝儀</small>Goshūgi</h2>
@@ -351,18 +377,80 @@ function tick(){
 }
 tick(); setInterval(tick, 1000);
 
-/* ---------- Confirmación (pendiente de conectar) ---------- */
-const form = document.getElementById('form'), thanks = document.getElementById('thanks'), err = document.getElementById('err');
-form.addEventListener('submit', e => {
+/* ---------- Confirmación de asistencia ---------- */
+// Dirección de la app web de Google Apps Script (ver CONFIGURAR-FORMULARIO.md).
+// Mientras esté vacía, el formulario funciona en modo pruebas y no guarda nada.
+const RSVP_URL = '';
+
+const $ = id => document.getElementById(id);
+const form = $('form'), thanks = $('thanks'), err = $('err'), send = $('send');
+$('testing').hidden = !!RSVP_URL;
+
+const val = name => (form.querySelector(`input[name=${name}]:checked`) || {}).value || '';
+function sync(){
+  const si = val('asistencia') === 'si';
+  $('siFields').hidden = !si;
+  $('acompFields').hidden = !(si && val('acompanado') === 'si');
+}
+form.addEventListener('change', sync); sync();
+
+// Un identificador por invitado y dispositivo: si cambia su respuesta, se actualiza su fila en vez de duplicarla.
+function guestId(){
+  let id = null;
+  try { id = localStorage.getItem('rsvp-id'); } catch(e){}
+  if (!id){
+    id = (window.crypto && crypto.randomUUID) ? crypto.randomUUID() : Date.now().toString(36) + Math.random().toString(36).slice(2);
+    try { localStorage.setItem('rsvp-id', id); } catch(e){}
+  }
+  return id;
+}
+
+function showErr(msg, focusEl){ err.textContent = msg; err.hidden = false; if (focusEl) focusEl.focus(); }
+
+form.addEventListener('submit', async e => {
   e.preventDefault();
-  const nom = document.getElementById('nom'), n = nom.value.trim();
-  if (!n){ err.hidden = false; nom.focus(); return; }
   err.hidden = true;
-  const va = form.querySelector('input[name=asistencia]:checked').value;
-  document.getElementById('thanksTxt').textContent = (va === 'si' ? `${n}, cuenta contigo.` : `${n}, te echaremos de menos.`) + ' (Formulario en pruebas: esta respuesta aún no se ha guardado.)';
-  form.hidden = true; thanks.hidden = false;
+  const nombre = $('nom').value.trim(), asistencia = val('asistencia');
+  if (!nombre) return showErr('Escribe tu nombre y apellidos para poder confirmar.', $('nom'));
+  if (!asistencia) return showErr('Dinos si vienes o no.', form.querySelector('input[name=asistencia]'));
+  const si = asistencia === 'si', acomp = si && val('acompanado') === 'si';
+  if (acomp && !$('acompNom').value.trim()) return showErr('Escribe el nombre de tu acompañante.', $('acompNom'));
+
+  const data = new URLSearchParams({
+    id: guestId(), nombre, asistencia,
+    alergias: si ? $('alerg').value.trim() : '',
+    menu: si ? $('menu').value : '',
+    acompanado: acomp ? 'si' : 'no',
+    acompanante_nombre: acomp ? $('acompNom').value.trim() : '',
+    acompanante_alergias: acomp ? $('acompAlerg').value.trim() : '',
+    acompanante_menu: acomp ? $('acompMenu').value : '',
+    transporte: si ? $('transp').value : '',
+    cancion: si ? $('cancion').value.trim() : '',
+    mensaje: $('msg').value.trim(),
+    web: $('web').value
+  });
+
+  let saved = false;
+  if (RSVP_URL){
+    send.disabled = true; send.textContent = 'Enviando…';
+    try {
+      const r = await fetch(RSVP_URL, { method: 'POST', body: data });
+      const j = await r.json();
+      if (!j.ok) throw new Error(j.error || 'error');
+      saved = true;
+    } catch(x){
+      send.disabled = false; send.textContent = 'Enviar mi respuesta';
+      return showErr('No hemos podido guardar tu respuesta. Revisa la conexión y vuelve a intentarlo; si sigue fallando, escríbenos por WhatsApp.');
+    }
+    send.disabled = false; send.textContent = 'Enviar mi respuesta';
+  }
+
+  $('thanksTitle').textContent = si ? 'Sitio reservado. ¡Kanpai!' : 'Gracias por avisarnos';
+  $('thanksTxt').textContent = (si ? (acomp ? `${nombre}, os esperamos a los dos el 25 de septiembre.` : `${nombre}, te esperamos el 25 de septiembre.`) : `${nombre}, te echaremos de menos.`)
+    + (saved ? ' Si cambias de idea, puedes modificar tu respuesta desde este mismo móvil.' : ' (Formulario en pruebas: esta respuesta aún no se ha guardado.)');
+  form.hidden = true; thanks.hidden = false; thanks.focus();
 });
-document.getElementById('again').addEventListener('click', () => { thanks.hidden = true; form.hidden = false; });
+$('again').addEventListener('click', () => { thanks.hidden = true; form.hidden = false; $('nom').focus(); });
 
 /* ---------- Copiar IBAN ---------- */
 const copied = document.getElementById('copied');

@@ -6,10 +6,12 @@ Web de la boda (estilo Izakaya, inspirada en Japón).
 - **Dónde:** Masia Cal Gitanet, s/n, 08503 Gurb (Vic), Barcelona
 - **Música al entrar:** One Summer's Day, de Joe Hisaishi (YouTube)
 
-Todo está en `index.html`, sin dependencias ni compilación.
+La web está en `index.html`, sin dependencias ni compilación.
+Las confirmaciones se guardan en Google Sheets mediante `apps-script/Code.gs` (ver [CONFIGURAR-FORMULARIO.md](CONFIGURAR-FORMULARIO.md)).
 
 ## Pendiente
 
 - [x] IBAN real (sección "Goshūgi")
-- [ ] Fecha límite de confirmación definitiva (ahora: 25 de julio de 2027)
-- [ ] Campos definitivos del formulario y dónde se guardan las respuestas
+- [x] Fecha límite de confirmación: 25 de julio de 2027
+- [x] Campos definitivos del formulario
+- [ ] Crear la hoja de Google y pegar la URL de la app web en `RSVP_URL` (`index.html`)
