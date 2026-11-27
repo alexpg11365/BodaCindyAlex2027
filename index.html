@@ -85,10 +85,15 @@ section{padding-top:48px;padding-bottom:4px}
 .cd small{font-size:11px;letter-spacing:.12em;text-transform:uppercase}
 .venue{font-family:var(--display);font-weight:800;font-size:26px;margin:0;line-height:1.2}
 address{font-style:normal;margin:6px 0 18px}
-.plan ol{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
-.plan li:last-child{grid-column:1/-1}
-.plan li{display:flex;flex-direction:column;align-items:center;text-align:center;background:var(--tablet);border-radius:3px;padding:14px 8px;box-shadow:inset 0 0 0 2px rgba(42,27,18,.15);gap:2px}
-.plan .k{writing-mode:vertical-rl;font-family:var(--brush);font-size:30px;line-height:1.1;margin:4px 0;min-height:70px;font-style:normal}
+.place-row{display:flex;flex-direction:column;align-items:flex-start;gap:4px}
+.place-row address{margin-bottom:14px}
+/* La carta: en móvil, una tablilla por fila (kanji a la izquierda); en ordenador, las cinco en una fila */
+.plan ol{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:minmax(0,1fr);gap:10px}
+.plan li{display:grid;grid-template-columns:64px minmax(0,1fr);grid-template-areas:"k t" "k b" "k d";align-items:center;column-gap:14px;text-align:left;background:var(--tablet);border-radius:3px;padding:12px 16px;box-shadow:inset 0 0 0 2px rgba(42,27,18,.15)}
+.plan .t{grid-area:t;align-self:end}
+.plan b{grid-area:b}
+.plan span.d{grid-area:d;align-self:start}
+.plan .k{grid-area:k;justify-self:center;writing-mode:vertical-rl;font-family:var(--brush);font-size:28px;line-height:1.1;font-style:normal;border-right:1.5px solid rgba(42,27,18,.2);padding-right:14px;margin-right:-14px;min-height:62px;display:flex;align-items:center}
 .plan .t{font-family:var(--mono);font-weight:600;color:#8f2219;font-size:13px}
 .plan b{font-size:16px}
 .plan span.d{font-size:13px;opacity:.8}
@@ -159,8 +164,13 @@ footer .fjp{font-family:var(--brush);font-size:22px;display:block;margin-bottom:
   .pairwrap{padding-left:max(22px,env(safe-area-inset-left,0px));padding-right:max(22px,env(safe-area-inset-right,0px))}
   .cd b{font-size:58px}
   .cd>div{padding:22px 8px}
-  .plan ol{grid-template-columns:repeat(3,minmax(0,1fr))}
-  .plan li:last-child{grid-column:auto}
+  .place-row{flex-direction:row;align-items:center;justify-content:space-between;gap:24px}
+  .place-row address{margin-bottom:0}
+  .plan ol{grid-template-columns:repeat(5,minmax(0,1fr));gap:14px}
+  .plan li{display:flex;flex-direction:column;align-items:center;justify-content:flex-start;text-align:center;padding:18px 10px;gap:4px}
+  .plan .t,.plan span.d{align-self:center}
+  .plan .k{align-self:center;border-right:0;padding-right:0;margin:6px 0;min-height:104px;font-size:32px;justify-content:center}
+  .plan b{font-size:18px}
   .dress-grid{grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:36px;align-items:start}
 }
 @media (prefers-reduced-motion: reduce){
@@ -200,14 +210,16 @@ footer .fjp{font-family:var(--brush);font-size:22px;display:block;margin-bottom:
     <div class="cd" aria-live="off"><div><b data-u="d">0</b><small>días</small></div><div><b data-u="h">00</b><small>horas</small></div><div><b data-u="m">00</b><small>min</small></div><div><b data-u="s">00</b><small>seg</small></div></div>
   </div></section>
 
-  <div class="pairwrap"><div class="pair">
-    <section class="place pad" aria-labelledby="h-place"><div class="inner card">
-      <h2 id="h-place"><small class="hjp">会場</small>Dónde está la taberna</h2>
-      <p class="venue">Masia Cal Gitanet</p>
-      <address>Masia Cal Gitanet, s/n<br>08503 Gurb (Vic), Barcelona</address>
+  <section class="place pad" aria-labelledby="h-place"><div class="inner card">
+    <h2 id="h-place"><small class="hjp">会場</small>Dónde está la taberna</h2>
+    <div class="place-row">
+      <div><p class="venue">Masia Cal Gitanet</p>
+      <address>Masia Cal Gitanet, s/n<br>08503 Gurb (Vic), Barcelona</address></div>
       <a class="btn" href="https://www.google.com/maps/search/?api=1&amp;query=Masia+Cal+Gitanet+08503+Gurb" target="_blank" rel="noopener">Abrir en Google Maps</a>
-    </div></section>
-    <section class="plan pad" aria-labelledby="h-plan"><div class="inner card">
+    </div>
+  </div></section>
+
+  <section class="plan pad" aria-labelledby="h-plan"><div class="inner card">
       <h2 id="h-plan"><small class="hjp">お品書き</small>La carta del día</h2>
       <ol>
         <li><span class="t">17:30</span><i class="k" aria-hidden="true">受付</i><b>Llegada</b><span class="d">Recibimiento de invitados</span></li>
@@ -216,8 +228,7 @@ footer .fjp{font-family:var(--brush);font-size:22px;display:block;margin-bottom:
         <li><span class="t">Noche</span><i class="k" aria-hidden="true">宴</i><b>Banquete</b><span class="d">Cena de celebración</span></li>
         <li><span class="t">Hasta tarde</span><i class="k" aria-hidden="true">二次会</i><b>Nijikai</b><span class="d">La fiesta de después</span></li>
       </ol>
-    </div></section>
-  </div></div>
+  </div></section>
 
   <section class="dress pad" id="dress-code" aria-labelledby="h-dress"><div class="inner card">
     <h2 id="h-dress"><small class="hjp">ドレスコード</small>Código de vestimenta</h2>
