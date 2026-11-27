@@ -14,4 +14,4 @@ Las confirmaciones se guardan en Google Sheets mediante `apps-script/Code.gs` (v
 - [x] IBAN real (sección "Goshūgi")
 - [x] Fecha límite de confirmación: 25 de julio de 2027
 - [x] Campos definitivos del formulario
-- [ ] Crear la hoja de Google y pegar la URL de la app web en `RSVP_URL` (`index.html`)
+- [x] Hoja de Google conectada (`RSVP_URL` en `index.html`)

@@ -380,7 +380,7 @@ tick(); setInterval(tick, 1000);
 /* ---------- Confirmación de asistencia ---------- */
 // Dirección de la app web de Google Apps Script (ver CONFIGURAR-FORMULARIO.md).
 // Mientras esté vacía, el formulario funciona en modo pruebas y no guarda nada.
-const RSVP_URL = '';
+const RSVP_URL = 'https://script.google.com/macros/s/AKfycbzyyMrf5CfSVPYflK3fX2b4z_Br5WoE31chyEfzr6zkP0K54MoGQfXs4H0qn-1mmgee/exec';
 
 const $ = id => document.getElementById(id);
 const form = $('form'), thanks = $('thanks'), err = $('err'), send = $('send');
