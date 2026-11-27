@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Cindy &amp; Alex · 25.09.2027</title>
-<meta name="description" content="Nos casamos el 25 de septiembre de 2027 a las 17:30 en la Masia Cal Gitanet (Gurb). Confirma tu asistencia aquí.">
+<meta name="description" content="Nos casamos el 25 de septiembre de 2027 en la Masia Cal Gitanet (Gurb): llegada a las 17:30 y ceremonia a las 18:00. Confirma tu asistencia aquí.">
 <meta property="og:title" content="Cindy &amp; Alex · 25.09.2027">
 <meta property="og:description" content="Irasshaimase! Nos casamos en la Masia Cal Gitanet. Confirma tu asistencia aquí.">
 <meta property="og:type" content="website">
@@ -85,8 +85,9 @@ section{padding-top:48px;padding-bottom:4px}
 .cd small{font-size:11px;letter-spacing:.12em;text-transform:uppercase}
 .venue{font-family:var(--display);font-weight:800;font-size:26px;margin:0;line-height:1.2}
 address{font-style:normal;margin:6px 0 18px}
-.plan ol{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:10px}
-.plan li{display:flex;flex-direction:column;align-items:center;text-align:center;width:calc(50% - 5px);background:var(--tablet);border-radius:3px;padding:14px 8px;box-shadow:inset 0 0 0 2px rgba(42,27,18,.15);gap:2px}
+.plan ol{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.plan li:last-child{grid-column:1/-1}
+.plan li{display:flex;flex-direction:column;align-items:center;text-align:center;background:var(--tablet);border-radius:3px;padding:14px 8px;box-shadow:inset 0 0 0 2px rgba(42,27,18,.15);gap:2px}
 .plan .k{writing-mode:vertical-rl;font-family:var(--brush);font-size:30px;line-height:1.1;margin:4px 0;min-height:70px;font-style:normal}
 .plan .t{font-family:var(--mono);font-weight:600;color:#8f2219;font-size:13px}
 .plan b{font-size:16px}
@@ -97,14 +98,14 @@ address{font-style:normal;margin:6px 0 18px}
 .dress-main{display:flex;flex-direction:column;gap:12px}
 .dress-tag{display:inline-flex;align-self:flex-start;align-items:center;gap:10px;background:var(--indigo);color:var(--paper);padding:8px 16px;border-radius:4px;font-family:var(--display);font-weight:800;font-size:22px}
 .dress-main p{margin:0}
-.nowhite{border:2px solid var(--red);border-radius:4px;padding:16px 18px;display:flex;flex-direction:column;gap:12px;background:var(--paper-2)}
-.nowhite h3{margin:0;font-family:var(--display);font-weight:800;font-size:20px;color:var(--red);display:flex;align-items:center;gap:10px}
-.nowhite h3 .x{font-family:var(--brush);font-size:26px;line-height:1}
+.nowhite{border:1.5px solid rgba(36,50,95,.35);border-radius:4px;padding:18px 20px;display:flex;flex-direction:column;gap:12px;background:var(--paper-2)}
+.nowhite h3{margin:0;font-family:var(--display);font-weight:800;font-size:22px;color:var(--indigo)}
+.dress-list{margin:0;padding-left:20px;display:flex;flex-direction:column;gap:6px}
 .nowhite p{margin:0}
-.sw{display:flex;flex-wrap:wrap;gap:10px;margin:0;padding:0;list-style:none}
-.sw li{display:flex;flex-direction:column;align-items:center;gap:4px;font-size:12px;width:62px;text-align:center;line-height:1.2}
+.sw{display:flex;flex-wrap:wrap;gap:8px;margin:0;padding:0;list-style:none}
+.sw li{display:flex;flex-direction:column;align-items:center;gap:4px;font-size:12px;width:54px;text-align:center;line-height:1.2}
 .sw i{width:40px;height:40px;border-radius:50%;border:1.5px solid rgba(42,27,18,.3);position:relative;display:block}
-.sw.no i::after{content:"";position:absolute;left:50%;top:-3px;bottom:-3px;width:3px;margin-left:-1.5px;background:var(--red);transform:rotate(45deg);border-radius:2px}
+.sw.no i::after{content:"";position:absolute;left:50%;top:6px;bottom:6px;width:1.5px;margin-left:-.75px;background:rgba(42,27,18,.45);transform:rotate(45deg);border-radius:1px}
 .yes-label{font-weight:700;font-size:14px;margin:4px 0 0}
 
 /* Confirmación */
@@ -158,7 +159,8 @@ footer .fjp{font-family:var(--brush);font-size:22px;display:block;margin-bottom:
   .pairwrap{padding-left:max(22px,env(safe-area-inset-left,0px));padding-right:max(22px,env(safe-area-inset-right,0px))}
   .cd b{font-size:58px}
   .cd>div{padding:22px 8px}
-  .plan li{width:calc(25% - 8px)}
+  .plan ol{grid-template-columns:repeat(3,minmax(0,1fr))}
+  .plan li:last-child{grid-column:auto}
   .dress-grid{grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:36px;align-items:start}
 }
 @media (prefers-reduced-motion: reduce){
@@ -187,8 +189,8 @@ footer .fjp{font-family:var(--brush);font-size:22px;display:block;margin-bottom:
     <p class="kicker">Irasshaimase! Os esperamos</p>
     <h1 class="names">Cindy &amp; Alex</h1>
     <p class="lede">La pedida fue en Japón y ahora abrimos la barra para celebrar que nos casamos. Venid con ganas de fiesta.</p>
-    <div class="when"><div><small>Fecha</small><b>25.09.2027</b></div><div><small>Hora</small><b>17:30 h</b></div></div>
-    <p class="day">Sábado, 25 de septiembre de 2027, a las cinco y media de la tarde</p>
+    <div class="when"><div><small>Fecha</small><b>25.09.2027</b></div><div><small>Llegada</small><b>17:30 h</b></div><div><small>Ceremonia</small><b>18:00 h</b></div></div>
+    <p class="day">Sábado, 25 de septiembre de 2027. Os esperamos a las cinco y media; la ceremonia empieza a las seis.</p>
   </div>
 </header>
 
@@ -208,7 +210,8 @@ footer .fjp{font-family:var(--brush);font-size:22px;display:block;margin-bottom:
     <section class="plan pad" aria-labelledby="h-plan"><div class="inner card">
       <h2 id="h-plan"><small class="hjp">お品書き</small>La carta del día</h2>
       <ol>
-        <li><span class="t">17:30</span><i class="k" aria-hidden="true">式</i><b>Ceremonia</b><span class="d">El sí, quiero</span></li>
+        <li><span class="t">17:30</span><i class="k" aria-hidden="true">受付</i><b>Llegada</b><span class="d">Recibimiento de invitados</span></li>
+        <li><span class="t">18:00</span><i class="k" aria-hidden="true">式</i><b>Ceremonia</b><span class="d">El sí, quiero</span></li>
         <li><span class="t">Después</span><i class="k" aria-hidden="true">乾杯</i><b>Kanpai</b><span class="d">Cóctel y brindis</span></li>
         <li><span class="t">Noche</span><i class="k" aria-hidden="true">宴</i><b>Banquete</b><span class="d">Cena de celebración</span></li>
         <li><span class="t">Hasta tarde</span><i class="k" aria-hidden="true">二次会</i><b>Nijikai</b><span class="d">La fiesta de después</span></li>
@@ -220,9 +223,15 @@ footer .fjp{font-family:var(--brush);font-size:22px;display:block;margin-bottom:
     <h2 id="h-dress"><small class="hjp">ドレスコード</small>Código de vestimenta</h2>
     <div class="dress-grid">
       <div class="dress-main">
-        <span class="dress-tag">Cóctel elegante</span>
-        <p>Vestido de cóctel o midi, mono elegante, traje o americana. Arreglados pero cómodos: la fiesta dura hasta tarde y se baila mucho.</p>
-        <p class="yes-label">Cualquier color con presencia es bienvenido:</p>
+        <span class="dress-tag">Formal Garden Party</span>
+        <p>Elegancia formal pensada para una boda al aire libre, entre jardines y bosque.</p>
+        <ul class="dress-list">
+          <li><b>Ellas:</b> vestido largo o midi, mono elegante o conjunto de dos piezas, en tejidos con caída como gasa, seda o lino de calidad.</li>
+          <li><b>Ellos:</b> traje de chaqueta en tejidos ligeros. La corbata o la pajarita son bienvenidas, pero no obligatorias.</li>
+          <li><b>Calzado:</b> habrá césped y tierra. Mejor tacón ancho, cuña o un buen zapato plano que los tacones finos.</li>
+          <li><b>Para la noche:</b> en Osona refresca en septiembre; un chal, una chaqueta o una americana os vendrá bien.</li>
+        </ul>
+        <p class="yes-label">Los colores vivos y los estampados de flores son muy bienvenidos:</p>
         <ul class="sw" aria-label="Colores que sí">
           <li><i style="background:#24325f"></i>Azul</li>
           <li><i style="background:#b8322a"></i>Rojo</li>
@@ -230,12 +239,14 @@ footer .fjp{font-family:var(--brush);font-size:22px;display:block;margin-bottom:
           <li><i style="background:#c9822b"></i>Mostaza</li>
           <li><i style="background:#6d3b6b"></i>Morado</li>
           <li><i style="background:#1d1b1a"></i>Negro</li>
+          <li><i style="background:radial-gradient(circle at 30% 30%,#e98fab 0 5px,transparent 6px),radial-gradient(circle at 70% 60%,#f2c14e 0 5px,transparent 6px),radial-gradient(circle at 35% 75%,#e98fab 0 4px,transparent 5px),#2f6b4f"></i>Flores</li>
         </ul>
       </div>
       <div class="nowhite">
-        <h3><span class="x" aria-hidden="true">✕</span>El blanco, para los novios</h3>
-        <p>Cindy y Alex iremos los dos de blanco o en tonos claros, así que <b>está prohibido el blanco y los colores parecidos</b>: marfil, crema, beige, champán, gris perla o tonos muy claros.</p>
-        <ul class="sw no" aria-label="Colores que no">
+        <h3><small class="hjp">お願い</small>Un pequeño favor</h3>
+        <p>Los dos iremos vestidos de blanco o en tonos claros, así que os pedimos con cariño que <b>evitéis el blanco y los colores parecidos</b>: marfil, crema, beige, champán, gris perla y otros tonos muy claros.</p>
+        <p>¡Muchas gracias por ayudarnos a que ese día el blanco sea solo nuestro!</p>
+        <ul class="sw no" aria-label="Colores que os pedimos evitar">
           <li><i style="background:#ffffff"></i>Blanco</li>
           <li><i style="background:#f6efdc"></i>Marfil</li>
           <li><i style="background:#efe3c8"></i>Crema</li>
