@@ -49,8 +49,8 @@ Al subir el cambio desaparece el aviso de "Formulario en pruebas" y las respuest
 
 ## Qué recibís
 
-- **Pestaña Confirmaciones:** una fila por invitado, con nombre, si viene, número de personas, alergias, menú, acompañante, autobús, canción y mensaje.
-- **Pestaña Resumen:** totales de personas, respuestas sí/no, menús especiales, alergias y personas que quieren autobús (desde Barcelona, Vic u otro sitio).
+- **Pestaña Confirmaciones:** una fila por invitado, con nombre, si viene, número de personas, alergias, menú, acompañante, canción y mensaje.
+- **Pestaña Resumen:** totales de personas, respuestas sí/no, menús especiales y alergias.
 - **Email** con cada respuesta nueva o cambiada.
 
 Si un invitado cambia su respuesta desde el mismo móvil, se actualiza su fila en vez de crear otra.

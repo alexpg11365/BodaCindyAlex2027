@@ -299,13 +299,6 @@ footer .fjp{font-family:var(--brush);font-size:22px;display:block;margin-bottom:
             <label for="acompMenu">Su menú</label>
             <select id="acompMenu"><option>Normal</option><option>Vegetariano</option><option>Vegano</option></select>
           </div>
-          <label for="transp">¿Te interesaría ir en autobús?</label>
-          <select id="transp">
-            <option>No, voy por mi cuenta</option>
-            <option>Sí, desde Barcelona</option>
-            <option>Sí, desde Vic</option>
-            <option>Sí, desde otro sitio</option>
-          </select>
           <label for="cancion">La canción que no puede faltar</label><input id="cancion" type="text" maxlength="150" placeholder="Artista y canción">
         </div>
         <label for="msg">Un mensaje para los novios (opcional)</label><textarea id="msg" rows="3" maxlength="1000"></textarea>
@@ -424,7 +417,6 @@ form.addEventListener('submit', async e => {
     acompanante_nombre: acomp ? $('acompNom').value.trim() : '',
     acompanante_alergias: acomp ? $('acompAlerg').value.trim() : '',
     acompanante_menu: acomp ? $('acompMenu').value : '',
-    transporte: si ? $('transp').value : '',
     cancion: si ? $('cancion').value.trim() : '',
     mensaje: $('msg').value.trim(),
     web: $('web').value

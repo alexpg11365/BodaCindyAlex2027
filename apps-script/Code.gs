@@ -9,10 +9,9 @@
  */
 
 // ===================== CONFIGURACIÓN =====================
-// El aviso por email llega siempre a la cuenta de Google que publica el script.
-// Añade aquí otros correos que también quieran recibirlo, por ejemplo:
-//   const AVISAR_TAMBIEN_A = ['cindy@ejemplo.com'];
-const AVISAR_TAMBIEN_A = [];
+// El aviso por email llega siempre a la cuenta de Google que publica el script
+// y, además, a estos correos:
+const AVISAR_TAMBIEN_A = ['alexpg11365@gmail.com', 'cindyjm812@gmail.com'];
 const ENVIAR_EMAIL = true;
 // ==========================================================
 
@@ -21,7 +20,7 @@ const CABECERAS = [
   'Recibido', 'Modificado', 'Nombre', '¿Viene?', 'Personas',
   'Alergias', 'Menú',
   'Acompañante', 'Alergias acompañante', 'Menú acompañante',
-  'Autobús', 'Canción', 'Mensaje', 'ID'
+  'Canción', 'Mensaje', 'ID'
 ];
 const COL_ID = CABECERAS.length; // la última columna
 
@@ -60,7 +59,6 @@ function doPost(e) {
     acomp ? limpiar_(p.acompanante_nombre, 120) : '',
     acomp ? limpiar_(p.acompanante_alergias, 300) : '',
     acomp ? limpiar_(p.acompanante_menu, 20) : '',
-    si ? limpiar_(p.transporte, 40) : '',
     si ? limpiar_(p.cancion, 150) : '',
     limpiar_(p.mensaje, 1000),
     id
@@ -96,14 +94,16 @@ function doPost(e) {
 function obtenerHoja_(ss) {
   let hoja = ss.getSheetByName(HOJA);
   if (!hoja) hoja = ss.insertSheet(HOJA, 0);
-  if (hoja.getLastRow() === 0) {
+  if (hoja.getLastRow() <= 1) {
+    // Sin respuestas todavía: (re)escribe las cabeceras.
+    hoja.clear();
     hoja.appendRow(CABECERAS);
     hoja.setFrozenRows(1);
     hoja.getRange(1, 1, 1, CABECERAS.length)
       .setFontWeight('bold').setBackground('#24325f').setFontColor('#f3e9d6');
     hoja.getRange('A:B').setNumberFormat('dd/mm/yyyy hh:mm');
     hoja.setColumnWidth(3, 200);
-    hoja.setColumnWidth(13, 320);
+    hoja.setColumnWidth(12, 320);
   }
   return hoja;
 }
@@ -120,11 +120,7 @@ function crearResumen_(ss) {
     ['Menús normales', '=COUNTIF(' + c + 'G2:G,"Normal")+COUNTIF(' + c + 'J2:J,"Normal")'],
     ['Menús vegetarianos', '=COUNTIF(' + c + 'G2:G,"Vegetariano")+COUNTIF(' + c + 'J2:J,"Vegetariano")'],
     ['Menús veganos', '=COUNTIF(' + c + 'G2:G,"Vegano")+COUNTIF(' + c + 'J2:J,"Vegano")'],
-    ['Personas con alergias indicadas', '=COUNTA(' + c + 'F2:F)+COUNTA(' + c + 'I2:I)'],
-    ['Personas que quieren autobús', '=SUMIF(' + c + 'K2:K,"Sí*",' + c + 'E2:E)'],
-    ['  · desde Barcelona', '=SUMIF(' + c + 'K2:K,"Sí, desde Barcelona",' + c + 'E2:E)'],
-    ['  · desde Vic', '=SUMIF(' + c + 'K2:K,"Sí, desde Vic",' + c + 'E2:E)'],
-    ['  · desde otro sitio', '=SUMIF(' + c + 'K2:K,"Sí, desde otro sitio",' + c + 'E2:E)']
+    ['Personas con alergias indicadas', '=COUNTA(' + c + 'F2:F)+COUNTA(' + c + 'I2:I)']
   ];
   r.getRange(1, 1, datos.length, 2).setValues(datos);
   r.getRange('A1').setFontWeight('bold').setFontSize(14);
@@ -150,9 +146,9 @@ function limpiar_(v, max) {
 
 function avisar_(fila, cambio) {
   const destinatarios = [Session.getEffectiveUser().getEmail()].concat(AVISAR_TAMBIEN_A)
-    .filter(Boolean).join(',');
+    .filter((v, i, a) => v && a.indexOf(v) === i).join(',');
   if (!destinatarios) return;
-  const [, , nombre, viene, personas, alergias, menu, acomp, acompAlergias, acompMenu, bus, cancion, mensaje] = fila;
+  const [, , nombre, viene, personas, alergias, menu, acomp, acompAlergias, acompMenu, cancion, mensaje] = fila;
   const asunto = (cambio ? 'Respuesta cambiada: ' : 'Nueva confirmación: ') + nombre + ' (' +
     (viene === 'Sí' ? 'viene, ' + personas + (personas === 1 ? ' persona' : ' personas') : 'no viene') + ')';
   const lineas = [
@@ -163,7 +159,7 @@ function avisar_(fila, cambio) {
     lineas.push('Menú: ' + menu, 'Alergias: ' + (alergias || 'ninguna'));
     if (acomp) lineas.push('', 'Acompañante: ' + acomp, 'Menú acompañante: ' + acompMenu,
       'Alergias acompañante: ' + (acompAlergias || 'ninguna'));
-    lineas.push('', 'Autobús: ' + bus, 'Canción: ' + (cancion || '-'));
+    lineas.push('', 'Canción: ' + (cancion || '-'));
   }
   if (mensaje) lineas.push('', 'Mensaje: ' + mensaje);
   lineas.push('', 'Todas las respuestas: ' + SpreadsheetApp.getActiveSpreadsheet().getUrl());
