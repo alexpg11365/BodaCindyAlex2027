@@ -10,6 +10,6 @@ Todo está en `index.html`, sin dependencias ni compilación.
 
 ## Pendiente
 
-- [ ] IBAN real (sección "Goshūgi")
+- [x] IBAN real (sección "Goshūgi")
 - [ ] Fecha límite de confirmación definitiva (ahora: 25 de julio de 2027)
 - [ ] Campos definitivos del formulario y dónde se guardan las respuestas
