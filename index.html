@@ -98,20 +98,43 @@ address{font-style:normal;margin:6px 0 18px}
 .plan b{font-size:16px}
 .plan span.d{font-size:13px;opacity:.8}
 
-/* Código de vestimenta */
-.dress-grid{display:grid;grid-template-columns:minmax(0,1fr);gap:22px}
-.dress-main{display:flex;flex-direction:column;gap:12px}
-.dress-tag{display:inline-flex;align-self:flex-start;align-items:center;gap:10px;background:var(--indigo);color:var(--paper);padding:8px 16px;border-radius:4px;font-family:var(--display);font-weight:800;font-size:22px}
-.dress-main p{margin:0}
-.nowhite{border:1.5px solid rgba(36,50,95,.35);border-radius:4px;padding:18px 20px;display:flex;flex-direction:column;gap:12px;background:var(--paper-2)}
-.nowhite h3{margin:0;font-family:var(--display);font-weight:800;font-size:22px;color:var(--indigo)}
-.dress-list{margin:0;padding-left:20px;display:flex;flex-direction:column;gap:6px}
-.nowhite p{margin:0}
-.sw{display:flex;flex-wrap:wrap;gap:8px;margin:0;padding:0;list-style:none}
-.sw li{display:flex;flex-direction:column;align-items:center;gap:4px;font-size:12px;width:54px;text-align:center;line-height:1.2}
-.sw i{width:40px;height:40px;border-radius:50%;border:1.5px solid rgba(42,27,18,.3);position:relative;display:block}
-.sw.no i::after{content:"";position:absolute;left:50%;top:6px;bottom:6px;width:1.5px;margin-left:-.75px;background:rgba(42,27,18,.45);transform:rotate(45deg);border-radius:1px}
-.yes-label{font-weight:700;font-size:14px;margin:4px 0 0}
+/* Código de vestimenta: infografía editorial */
+.dc{display:flex;flex-direction:column;gap:36px}
+.dc-head{text-align:center;display:flex;flex-direction:column;align-items:center;gap:12px;padding-bottom:28px;border-bottom:1px solid var(--line-dark)}
+.dc-head h2{margin:0;font-size:clamp(38px,9vw,64px);line-height:1.02}
+.dc-head .hjp{margin-bottom:12px}
+.dc-sub{margin:0;max-width:44ch;font-family:var(--display);font-weight:500;font-size:19px;line-height:1.45}
+.dc-label{display:flex;align-items:center;gap:12px;margin:0 0 14px;font-size:12px;font-weight:700;letter-spacing:.18em;text-transform:uppercase}
+.dc-label::before,.dc-label::after{content:"";flex:1;height:1px;background:var(--line-dark)}
+.dc-label .jp{color:var(--red);letter-spacing:.08em;white-space:nowrap}
+.dc-title{margin:0 0 20px;font-family:var(--display);font-weight:800;font-size:24px;line-height:1.2;text-align:center;text-wrap:balance}
+.dc-cols{display:grid;grid-template-columns:minmax(0,1fr);gap:32px}
+.dc-col h3{margin:0 0 16px;font-family:var(--display);font-weight:800;font-size:27px;display:flex;align-items:baseline;gap:10px}
+.dc-col h3 small{font-family:var(--body);font-size:13px;color:var(--red);letter-spacing:.15em}
+.dc-list{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:14px}
+.dc-list li{display:grid;grid-template-columns:44px minmax(0,1fr);gap:14px;align-items:center}
+.ico{width:44px;height:44px;color:var(--indigo);fill:none;stroke:currentColor;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round;overflow:visible}
+.dc-tip{display:grid;grid-template-columns:50px minmax(0,1fr);gap:16px;align-items:center;background:var(--indigo);color:var(--paper);padding:18px 20px;border-radius:4px}
+.dc-tip .ico{color:var(--paper);width:50px;height:50px}
+.dc-tip p{margin:0}
+.chips{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(66px,1fr));gap:18px 8px}
+.chips li{display:flex;flex-direction:column;align-items:center;gap:7px;text-align:center;font-size:13px;line-height:1.25}
+.chips .dot{width:50px;height:50px;border-radius:50%;border:1.5px solid rgba(42,27,18,.28);position:relative;overflow:hidden;display:grid;place-items:center;background:var(--c,var(--paper-2));flex:none}
+.chips .dot>svg{width:100%;height:100%}
+.chips.no .dot::after{content:"";position:absolute;left:50%;top:3px;bottom:3px;width:2px;margin-left:-1px;background:var(--red);box-shadow:0 0 0 1px var(--paper-2);transform:rotate(45deg)}
+.chips.no .dot>svg.ico{width:34px;height:34px;color:#5a4a3e}
+.tx-lino{background:repeating-linear-gradient(0deg,rgba(42,27,18,.2) 0 1px,transparent 1px 4px),repeating-linear-gradient(90deg,rgba(42,27,18,.16) 0 1px,transparent 1px 5px),#A9B99A!important}
+.tx-seda{background:linear-gradient(135deg,#6f8db3 0%,#8FAACB 30%,#dde8f4 48%,#8FAACB 62%,#6f8db3 100%)!important}
+.tx-algodon{background:radial-gradient(rgba(42,27,18,.22) 1px,transparent 1.6px) 0 0/6px 6px,#BBD3E8!important}
+.tx-gasa{background:linear-gradient(160deg,rgba(255,255,255,.5),transparent 60%),repeating-linear-gradient(100deg,rgba(255,255,255,.3) 0 3px,transparent 3px 9px),#E9B5BD!important}
+.tx-saten{background:linear-gradient(120deg,#9f86c4,#C4B0DC 35%,#f1e9f8 50%,#C4B0DC 65%,#9f86c4)!important}
+.dc-note{margin:16px auto 0;text-align:center;font-size:14px;max-width:52ch}
+.dc-favor{border:1.5px solid rgba(36,50,95,.35);border-radius:4px;padding:24px 14px;background:var(--paper-2);display:flex;flex-direction:column;gap:22px}
+.dc-favor .dc-title{margin:0}
+.dc-center{margin:0 auto;text-align:center;max-width:56ch}
+.dc-sublabel{margin:0 0 12px;font-weight:700;font-size:14px;text-align:center}
+@media (max-width:759px){.chips.c4{grid-template-columns:repeat(4,minmax(0,1fr))}.chips.c3{grid-template-columns:repeat(3,minmax(0,1fr))}.chips.c4 .dot{width:46px;height:46px}}
+.dc-thanks{margin:0;font-family:var(--display);font-weight:800;font-size:20px;line-height:1.35;text-align:center;color:var(--indigo);text-wrap:balance}
 
 /* Confirmación */
 .deadline{margin:0 0 16px;padding:12px 14px;background:var(--indigo);color:var(--paper);border-radius:4px}
@@ -176,7 +199,13 @@ footer .fjp{font-family:var(--brush);font-size:22px;display:block;margin-bottom:
   .plan .t,.plan span.d{align-self:center}
   .plan .k{align-self:center;border-right:0;padding-right:0;margin:6px 0;min-height:104px;font-size:32px;justify-content:center}
   .plan b{font-size:18px}
-  .dress-grid{grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:36px;align-items:start}
+  .dc{gap:44px}
+  .dc-cols{grid-template-columns:1fr 1fr;gap:0}
+  .dc-col{padding:0 36px}
+  .dc-col:first-child{padding-left:0;border-right:1px solid var(--line-dark)}
+  .dc-col:last-child{padding-right:0}
+  .chips .dot{width:58px;height:58px}
+  .dc-favor{padding:32px 36px}
 }
 @media (prefers-reduced-motion: reduce){
   *,*::before,*::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}
@@ -235,42 +264,116 @@ footer .fjp{font-family:var(--brush);font-size:22px;display:block;margin-bottom:
       </ol>
   </div></section>
 
-  <section class="dress pad" id="dress-code" aria-labelledby="h-dress"><div class="inner card">
-    <h2 id="h-dress"><small class="hjp">ドレスコード</small>Código de vestimenta</h2>
-    <div class="dress-grid">
-      <div class="dress-main">
-        <span class="dress-tag">Formal Garden Party</span>
-        <p>Elegancia formal pensada para una boda al aire libre, entre jardines y bosque.</p>
-        <ul class="dress-list">
-          <li><b>Ellas:</b> vestido largo o midi, mono elegante o conjunto de dos piezas, en tejidos con caída como gasa, seda o lino de calidad.</li>
-          <li><b>Ellos:</b> traje de chaqueta en tejidos ligeros. La corbata o la pajarita son bienvenidas, pero no obligatorias.</li>
-          <li><b>Calzado:</b> habrá césped y tierra. Mejor tacón ancho, cuña o un buen zapato plano que los tacones finos.</li>
-          <li><b>Para la noche:</b> en Osona refresca en septiembre; un chal, una chaqueta o una americana os vendrá bien.</li>
-        </ul>
-        <p class="yes-label">Los colores vivos y los estampados de flores son muy bienvenidos:</p>
-        <ul class="sw" aria-label="Colores que sí">
-          <li><i style="background:#24325f"></i>Azul</li>
-          <li><i style="background:#b8322a"></i>Rojo</li>
-          <li><i style="background:#2f6b4f"></i>Verde</li>
-          <li><i style="background:#c9822b"></i>Mostaza</li>
-          <li><i style="background:#6d3b6b"></i>Morado</li>
-          <li><i style="background:#1d1b1a"></i>Negro</li>
-          <li><i style="background:radial-gradient(circle at 30% 30%,#e98fab 0 5px,transparent 6px),radial-gradient(circle at 70% 60%,#f2c14e 0 5px,transparent 6px),radial-gradient(circle at 35% 75%,#e98fab 0 4px,transparent 5px),#2f6b4f"></i>Flores</li>
+  <section class="dress pad" id="dress-code" aria-labelledby="h-dress"><div class="inner card dc">
+    <!-- Iconos de línea (SVG propios) -->
+    <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+      <symbol id="i-vestido" viewBox="0 0 48 48"><path d="M19 5l2 9M29 5l-2 9M21 14h6l2 8H19z"/><path d="M19 22l-8 21h26l-8-21"/><path d="M16 31c5 2 11 2 16 0"/></symbol>
+      <symbol id="i-mono" viewBox="0 0 48 48"><path d="M17 6h14l1 10-3 4H19l-3-4z"/><path d="M20 6l4 6 4-6"/><path d="M19 20l-4 23h7l2-15 2 15h7l-4-23"/></symbol>
+      <symbol id="i-flor" viewBox="0 0 48 48"><g id="petalo"><path d="M24 20c-4-4-4-11 0-14 4 3 4 10 0 14z"/></g><use href="#petalo" transform="rotate(72 24 24)"/><use href="#petalo" transform="rotate(144 24 24)"/><use href="#petalo" transform="rotate(216 24 24)"/><use href="#petalo" transform="rotate(288 24 24)"/><circle cx="24" cy="24" r="3"/></symbol>
+      <symbol id="i-sandalia" viewBox="0 0 48 48"><path d="M5 35c8-1 22-1 30-3 4-1 7 0 8 2v3H8c-2 0-3-1-3-2z"/><path d="M9 37v6h5v-6"/><path d="M14 34c1-6 5-9 10-8"/><path d="M27 32c1-4 4-6 8-5"/></symbol>
+      <symbol id="i-traje" viewBox="0 0 48 48"><path d="M16 7l-8 5 2 31h28l2-31-8-5"/><path d="M16 7l8 17 8-17"/><path d="M24 24v19"/><path d="M12 24h5"/><circle cx="24" cy="31" r=".6"/><circle cx="24" cy="37" r=".6"/></symbol>
+      <symbol id="i-camisa" viewBox="0 0 48 48"><path d="M18 7l-8 4-5 9 6 3 2-4v24h22V19l2 4 6-3-5-9-8-4"/><path d="M18 7l3 7 3-3 3 3 3-7"/><path d="M24 11v30"/></symbol>
+      <symbol id="i-corbata" viewBox="0 0 48 48"><path d="M20 6h8l-1.5 6h-5z"/><path d="M21.5 12L18 34l6 8 6-8-3.5-22"/></symbol>
+      <symbol id="i-mocasin" viewBox="0 0 48 48"><path d="M5 33c0-6 5-9 11-9 5 0 8 4 15 4 6 0 12 1 12 6v2H5z"/><path d="M5 39h38"/><path d="M15 25c2 4 9 5 14 3"/></symbol>
+      <symbol id="i-cesped" viewBox="0 0 48 48"><g transform="translate(0 -5)"><path d="M5 33c0-6 5-9 11-9 5 0 8 4 15 4 6 0 12 1 12 6v2H5z"/><path d="M15 25c2 4 9 5 14 3"/></g><path d="M6 44l2-5 2 5M16 44l2-6 2 6M27 44l2-5 2 5M38 44l2-6 2 6"/></symbol>
+      <symbol id="i-crochet" viewBox="0 0 48 48"><circle cx="19" cy="29" r="11"/><path d="M9 25c6-2 13 2 20-1M10 33c6-2 12 2 19-1M15 19c3 5 3 15 0 20"/><path d="M30 18L41 7l2 2-1 2"/></symbol>
+      <symbol id="i-vaquero" viewBox="0 0 48 48"><path d="M13 7h22l2 36h-9l-4-22-4 22h-9z"/><path d="M13 12h22"/><path d="M15 12c1 5 4 6 7 5M33 12c-1 5-4 6-7 5"/><path d="M24 12v9"/></symbol>
+      <symbol id="i-casual" viewBox="0 0 48 48"><path d="M18 9c0-4 12-4 12 0l7 4 6 11-5 2-3-5v21H13V21l-3 5-5-2 6-11z"/><path d="M18 31h12l2 6H16z"/><path d="M22 11v6M26 11v6"/></symbol>
+      <symbol id="i-zapatilla" viewBox="0 0 48 48"><path d="M5 34v-8c5 0 9-3 11-8l6 2c3 5 11 6 18 8 2 1 3 3 3 6z"/><path d="M5 34h38v4H5z"/><path d="M17 22l4 3M15 26l4 3M13 29l3 2"/></symbol>
+      <symbol id="i-corto" viewBox="0 0 48 48"><path d="M19 6l2 8M29 6l-2 8M21 14h6l2 6H19z"/><path d="M19 20l-5 10h20l-5-10"/><path d="M20 30v13M28 30v13"/></symbol>
+      <symbol id="p-flores" viewBox="0 0 50 50"><g fill="#e98fab"><circle cx="14" cy="15" r="3.2"/><circle cx="19" cy="12" r="3.2"/><circle cx="21" cy="18" r="3.2"/><circle cx="16" cy="21" r="3.2"/><circle cx="12" cy="19.5" r="3.2"/></g><circle cx="16.5" cy="17" r="2" fill="#f7e08a"/><g fill="#f6f0f6"><circle cx="33" cy="28" r="3"/><circle cx="37.5" cy="25" r="3"/><circle cx="39" cy="30.5" r="3"/><circle cx="35" cy="34" r="3"/><circle cx="31" cy="32.5" r="3"/></g><circle cx="35" cy="30" r="1.8" fill="#c9704f"/><g fill="#c4b0dc"><circle cx="16" cy="36" r="2.4"/><circle cx="19.5" cy="34" r="2.4"/><circle cx="20" cy="38.5" r="2.4"/><circle cx="16.5" cy="40.5" r="2.4"/><circle cx="13.5" cy="38.5" r="2.4"/></g><circle cx="17" cy="37.5" r="1.4" fill="#f7e08a"/><path d="M29 12c3 1 5 4 5 7M38 14c-2 1-4 3-4 5" stroke="#5f6e3d" stroke-width="1.4" fill="none" stroke-linecap="round"/></symbol>
+    </svg>
+
+    <header class="dc-head">
+      <h2 id="h-dress"><small class="hjp">ドレスコード · Código de vestimenta</small>Formal Garden Party</h2>
+      <p class="dc-sub">Elegancia, color y ganas de bailar hasta el amanecer, al aire libre entre jardines y bosque.</p>
+    </header>
+
+    <div class="dc-cols">
+      <div class="dc-col">
+        <h3>Para ellas <small aria-hidden="true">女性</small></h3>
+        <ul class="dc-list">
+          <li><svg class="ico" aria-hidden="true"><use href="#i-vestido"/></svg><span>Vestido midi o largo, nunca corto.</span></li>
+          <li><svg class="ico" aria-hidden="true"><use href="#i-mono"/></svg><span>Mono elegante o conjunto de dos piezas.</span></li>
+          <li><svg class="ico" aria-hidden="true"><use href="#i-flor"/></svg><span>Colores de la paleta, volantes y estampados de flores.</span></li>
+          <li><svg class="ico" aria-hidden="true"><use href="#i-sandalia"/></svg><span>Calzado elegante y cómodo: tacón ancho, cuña o sandalia plana arreglada.</span></li>
         </ul>
       </div>
-      <div class="nowhite">
-        <h3><small class="hjp">お願い</small>Un pequeño favor</h3>
-        <p>Los dos iremos vestidos de blanco o en tonos claros, así que os pedimos con cariño que <b>evitéis el blanco y los colores parecidos</b>: marfil, crema, beige, champán, gris perla y otros tonos muy claros.</p>
-        <p>¡Muchas gracias por ayudarnos a que ese día el blanco sea solo nuestro!</p>
-        <ul class="sw no" aria-label="Colores que os pedimos evitar">
-          <li><i style="background:#ffffff"></i>Blanco</li>
-          <li><i style="background:#f6efdc"></i>Marfil</li>
-          <li><i style="background:#efe3c8"></i>Crema</li>
-          <li><i style="background:#e2cfae"></i>Beige</li>
-          <li><i style="background:#ead9b5"></i>Champán</li>
-          <li><i style="background:#dfe0e2"></i>Gris perla</li>
+      <div class="dc-col">
+        <h3>Para ellos <small aria-hidden="true">男性</small></h3>
+        <ul class="dc-list">
+          <li><svg class="ico" aria-hidden="true"><use href="#i-traje"/></svg><span>Lo ideal: traje completo en tejido ligero y en los colores de la paleta.</span></li>
+          <li><svg class="ico" aria-hidden="true"><use href="#i-camisa"/></svg><span>También camisa de vestir (manga larga o corta) con pantalón de vestir.</span></li>
+          <li><svg class="ico" aria-hidden="true"><use href="#i-corbata"/></svg><span>Chaqueta, corbata o pajarita: opcionales.</span></li>
+          <li><svg class="ico" aria-hidden="true"><use href="#i-mocasin"/></svg><span>Calzado elegante y cómodo: mocasines o zapato de piel.</span></li>
         </ul>
       </div>
+    </div>
+
+    <div class="dc-tip">
+      <svg class="ico" aria-hidden="true"><use href="#i-cesped"/></svg>
+      <p>Habrá césped y grava, y bailaremos toda la noche: elige un calzado que te deje disfrutar. En Osona refresca en septiembre; un chal, una chaqueta o una americana os vendrá bien.</p>
+    </div>
+
+    <div>
+      <p class="dc-label"><span class="jp" aria-hidden="true">色</span> Paleta</p>
+      <h3 class="dc-title">Nos encantará veros en tonos como:</h3>
+      <ul class="chips c4" aria-label="Colores recomendados">
+        <li><span class="dot" style="--c:#A9B99A"></span>Verde salvia</li>
+        <li><span class="dot" style="--c:#7E8B4F"></span>Verde oliva</li>
+        <li><span class="dot" style="--c:#8FAACB"></span>Azul empolvado</li>
+        <li><span class="dot" style="--c:#BBD3E8"></span>Celeste</li>
+        <li><span class="dot" style="--c:#26385C"></span>Azul marino</li>
+        <li><span class="dot" style="--c:#E9B5BD"></span>Rosa palo</li>
+        <li><span class="dot" style="--c:#F2B48E"></span>Melocotón</li>
+        <li><span class="dot" style="--c:#C9704F"></span>Terracota</li>
+        <li><span class="dot" style="--c:#C4B0DC"></span>Lila</li>
+        <li><span class="dot" style="--c:#F0DB8E"></span>Amarillo mantequilla</li>
+        <li><span class="dot" style="--c:#A9B99A"><svg aria-hidden="true"><use href="#p-flores"/></svg></span>Flores</li>
+      </ul>
+    </div>
+
+    <div>
+      <p class="dc-label"><span class="jp" aria-hidden="true">素材</span> Telas y acabados bienvenidos</p>
+      <ul class="chips c3" aria-label="Telas y acabados bienvenidos">
+        <li><span class="dot tx-lino"></span>Lino</li>
+        <li><span class="dot tx-seda"></span>Seda</li>
+        <li><span class="dot tx-algodon"></span>Algodón</li>
+        <li><span class="dot tx-gasa"></span>Gasa (chifón)</li>
+        <li><span class="dot tx-saten"></span>Satén</li>
+        <li><span class="dot" style="--c:#F2B48E"><svg aria-hidden="true"><use href="#p-flores"/></svg></span>Estampado floral</li>
+      </ul>
+      <p class="dc-note">Si eliges lino, mejor en color: no en blanco, crudo ni beige.</p>
+    </div>
+
+    <div class="dc-favor">
+      <p class="dc-label"><span class="jp" aria-hidden="true">お願い</span> Qué evitar</p>
+      <h3 class="dc-title">Un pequeño favor</h3>
+      <p class="dc-center">Los dos iremos vestidos de blanco o en tonos claros, así que os pedimos con cariño que <b>evitéis el blanco y los colores parecidos</b>: marfil, crema, beige, champán, gris perla y otros tonos muy claros.</p>
+      <div>
+        <p class="dc-sublabel">Colores</p>
+        <ul class="chips no c4" aria-label="Colores que os pedimos evitar">
+          <li><span class="dot" style="--c:#ffffff"></span>Blanco</li>
+          <li><span class="dot" style="--c:#f6efdc"></span>Marfil</li>
+          <li><span class="dot" style="--c:#efe3c8"></span>Crema</li>
+          <li><span class="dot" style="--c:#e2cfae"></span>Beige</li>
+          <li><span class="dot" style="--c:#ead9b5"></span>Champán</li>
+          <li><span class="dot" style="--c:#dfe0e2"></span>Gris perla</li>
+          <li><span class="dot" style="--c:#1d1b1a"></span>Negro</li>
+        </ul>
+        <p class="dc-note">El blanco y sus tonos cercanos son solo para nosotros ese día, y os pedimos dejar el negro en casa.</p>
+      </div>
+      <div>
+        <p class="dc-sublabel">Telas y prendas</p>
+        <ul class="chips no c3" aria-label="Telas y prendas que os pedimos evitar">
+          <li><span class="dot"><svg class="ico" aria-hidden="true"><use href="#i-crochet"/></svg></span>Crochet o ganchillo</li>
+          <li><span class="dot"><svg class="ico" aria-hidden="true"><use href="#i-vaquero"/></svg></span>Tejido vaquero (tejanos/jeans)</li>
+          <li><span class="dot"><svg class="ico" aria-hidden="true"><use href="#i-casual"/></svg></span>Ropa deportiva o casual</li>
+          <li><span class="dot"><svg class="ico" aria-hidden="true"><use href="#i-zapatilla"/></svg></span>Zapatillas deportivas</li>
+          <li><span class="dot"><svg class="ico" aria-hidden="true"><use href="#i-corto"/></svg></span>Vestidos cortos</li>
+        </ul>
+      </div>
+      <p class="dc-thanks">¡Muchas gracias por ayudarnos a crear la atmósfera de nuestro día con vuestra ropa!</p>
     </div>
   </div></section>
 
